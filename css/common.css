@@ -65,24 +65,29 @@ body {
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  gap: 48px 24px; 
+  gap: 24px; /* Відстань між картинками по горизонталі та вертикалі */
+  row-gap: 48px; /* Відстань між рядами */
+  justify-content: center;
   list-style: none;
   padding: 0;
-  margin: 0;
-  justify-content: center;
-  margin-top: 100px;
+
 }
 
-.gallery-item {
-  width: 360px; 
-  display: flex;
-  justify-content: center;
-  list-style: none;
+.gallery li {
+  flex: 0 1 calc((100% - 48px) / 3); /* Розрахунок ширини для 3 картинок у ряд */
+  max-width: calc((100% - 48px) / 3); /* Забезпечує правильну ширину */
 }
 
-.gallery-image {
-  width: 360px; 
-  height: 300px; 
+.gallery img {
+  width: 360px;
+  height: 300px;
+  object-fit: cover; /* Пропорційне обрізання зображення */
+  display: block;
+}
+@media screen and (max-width: 900px) {
+  .gallery {
+    display: block;
+  }
 }
 /* finish styles for task-2.html */
 
@@ -145,5 +150,82 @@ width: 86px;
 height: 40px;
 background: #4e75ff;
 border: none;
+cursor: pointer;
 }
 /* finish styles for task-4.html */
+
+/* last styles */
+#controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  background-color: #f6f6fe;
+
+  border-radius: 8px;
+padding: 32px;
+width: 486px;
+height: 104px;
+margin-left: auto;
+margin-right: auto;
+}
+
+#controls input {
+  width: 150px;
+  height: 40px;
+  font-size: 16px;
+  text-align: center;
+  border: 2px solid #808080;
+  border-radius: 8px;
+  outline: none;
+  color: #2E2F42;
+}
+
+
+#controls button {
+  width: 120px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+font-weight: 500;
+font-size: 16px;
+
+/* line-height: 24px; */ 
+line-height: 1.5;
+letter-spacing: 0.04em;
+color: #fff;
+transition: 0.4s ease;
+}
+
+#controls button[data-create] {
+  background-color: #007bff;
+}
+
+#controls button[data-create]:hover {
+  background-color: #0056b3;
+}
+
+#controls button[data-destroy] {
+  background-color: #dc3545;
+}
+
+#controls button[data-destroy]:hover {
+  background-color: #a71d2a;
+}
+
+#boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
